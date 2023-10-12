@@ -384,6 +384,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Material Function             | MF_        |            |                                  |
 | Material Instance             | MI_        |            |                                  |
 | Material Parameter Collection | MPC_       |            |                                  |
+| Light Function                | LF_        |            |                                  |
 | Subsurface Profile            | SP_        |            |                                  |
 | Physical Materials            | PM_        |            |                                  |
 | Decal                         | M_, MI_    | _Decal     |                                  |
