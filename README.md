@@ -45,6 +45,7 @@ Every section of this style guide is numbered for both easy reference and easy l
   - [1.2.10 Sounds](#anc-sounds)
   - [1.2.11 User Interface](#anc-ui)
   - [1.2.12 Effects](#anc-effects)
+  - [1.2.13 Media](#anc-media)
 - [2. Content Directory Structure](#structure)
   - [2e1 Example Project Content Structure](#2e1)
   - [2.1 Folder Names](#structure-folder-names)
@@ -283,9 +284,9 @@ Depending on how your asset variants are made, you can chain together variant na
 
 | Asset Type              | Asset Name                                                 |
 | ----------------------- | ---------------------------------------------------------- |
-| Static Mesh (01)        | S_Rock_01                                                  |
-| Static Mesh (02)        | S_Rock_02                                                  |
-| Static Mesh (03)        | S_Rock_03                                                  |
+| Static Mesh (01)        | SM_Rock_01                                                 |
+| Static Mesh (02)        | SM_Rock_02                                                 |
+| Static Mesh (03)        | SM_Rock_03                                                 |
 | Material                | M_Rock                                                     |
 | Material Instance (Snow)| MI_Rock_Snow                                               |
 
@@ -301,12 +302,12 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
-| Level                   |            |            | [Should be in a folder called Levels.](#2.4) |
-| Level (Persistent)      |            | _P         |                                  |
-| Level (Audio)           |            | _Audio     |                                  |
-| Level (Lighting)        |            | _Lighting  |                                  |
-| Level (Geometry)        |            | _Geo       |                                  |
-| Level (Gameplay)        |            | _Gameplay  |                                  |
+| Level                   | LV_        |            | [Should be in a folder called Levels.](#2.4) |
+| Level (Persistent)      | LV_        | _P         |                                  |
+| Level (Audio)           | LV_        | _Audio     |                                  |
+| Level (Lighting)        | LV_        | _Lighting  |                                  |
+| Level (Geometry)        | LV_        | _Geo       |                                  |
+| Level (Gameplay)        | LV_        | _Gameplay  |                                  |
 | Blueprint               | BP_        |            |                                  |
 | Material                | M_         |            |                                  |
 | Static Mesh             | SM_        |            |                                  |
@@ -322,16 +323,21 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Aim Offset              | AO_        |            |                                  |
-| Aim Offset 1D           | AO_        |            |                                  |
 | Animation Blueprint     | ABP_       |            |                                  |
 | Animation Composite     | AC_        |            |                                  |
 | Animation Montage       | AM_        |            |                                  |
 | Animation Sequence      | A_         |            |                                  |
 | Blend Space             | BS_        |            |                                  |
-| Blend Space 1D          | BS_        |            |                                  |
+| Control Rig             | CR_        |            |                                  |
+| Control Rig Shape Library | CRSL_    |            |                                  |
+| IK Rig                  | IK_        |            |                                  |
+| IK Retargeter           | IKR_       |            |                                  |
+| Groom                   | GR_        |            |                                  |
 | Level Sequence          | LS_        |            |                                  |
+| Level Sequence (Main)   | LS_        | _M         |                                  |
+| Metahuman Identity      | MHI_       |            |                                  |
 | Morph Target            | MT_        |            |                                  |
-| Paper Flipbook          | PFB_       |            |                                  |
+| Pose Asset              | PA_        |            |                                  |
 | Rig                     | Rig_       |            |                                  |
 | Skeletal Mesh           | SK_        |            |                                  |
 | Skeleton                | SKEL_      |            |                                  |
@@ -358,12 +364,12 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Blueprint               | BP_        |            |                                  |
-| Blueprint Component     | BP_        | Component  | I.e. BP_InventoryComponent       |
+| Blueprint Component     | BPC_       |            |                                  |
 | Blueprint Function Library | BPFL_   |            |                                  |
 | Blueprint Interface     | BPI_       |            |                                  |
 | Blueprint Macro Library | BPML_      |            | Do not use macro libraries if possible. |
 | Enumeration             | E          |            | No underscore.                   |
-| Structure               | F or S     |            | No underscore.                   |
+| Structure               | S          |            | No underscore.                   |
 | Tutorial Blueprint      | TBP_       |            |                                  |
 | Widget Blueprint        | WBP_       |            |                                  |
 
@@ -404,7 +410,9 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Media Texture           | MT_        |            |                                  |
 | Render Target           | RT_        |            |                                  |
 | Cube Render Target      | RTC_       |            |                                  |
-| Texture Light Profile   | TLP        |            |                                  |
+| Texture Light Profile   | TLP_       |            |                                  |
+| Volume Render Target    | VRT_       |            |                                  |
+| Volume Texture          | VT_        |            |                                  |
 
 <a name="anc-textures-packing"></a>
 <a name="1.2.6.1"></a>
@@ -427,18 +435,19 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Curve Table                | Curve_     | _Table     |                                  |
 | Data Asset                 | *_         |            | Prefix should be based on class. |
 | Data Table                 | DT_        |            |                                  |
+| Editor Utility Blueprint   | BP_        |            |                                  |
+| Editor Utility Widget      | WBP_       |            |                                  |
 | Float Curve                | Curve_     | _Float     |                                  |
-| Foliage Type               | FT_        |            |                                  |
+| Foliage Type               | F_         |            |                                  |
 | Force Feedback Effect      | FFE_       |            |                                  |
 | Landscape Grass Type       | LG_        |            |                                  |
 | Landscape Layer            | LL_        |            |                                  |
 | Matinee Data               | Matinee_   |            |                                  |
-| Media Player               | MP_        |            |                                  |
-| File Media Source          | FMS_       |            |                                  |
 | Object Library             | OL_        |            |                                  |
 | Redirector                 |            |            | These should be fixed up ASAP.   |
 | Sprite Sheet               | SS_        |            |                                  |
 | Static Vector Field        | VF_        |            |                                  |
+| String Table               | ST_        |            |                                  |
 | Substance Graph Instance   | SGI_       |            |                                  |
 | Substance Instance Factory | SIF_       |            |                                  |
 | Touch Interface Setup      | TI_        |            |                                  |
@@ -475,13 +484,15 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Dialogue Voice          | DV_        |            |                                  |
 | Dialogue Wave           | DW_        |            |                                  |
 | Media Sound Wave        | MSW_       |            |                                  |
+| MetaSound Source        | MSS_       |            |                                  |
+| MetaSound Patch         | MSP_       |            |                                  |
 | Reverb Effect           | Reverb_    |            |                                  |
 | Sound Attenuation       | ATT_       |            |                                  |
 | Sound Class             |            |            | No prefix/suffix. Should be put in a folder called SoundClasses |
-| Sound Concurrency       |            | _SC        | Should be named after a SoundClass |
-| Sound Cue               | A_         | _Cue       |                                  |
+| Sound Concurrency       |            | _CNC       | Should be named after a SoundClass |
+| Sound Cue               | Cue_       |            |                                  |
 | Sound Mix               | Mix_       |            |                                  |
-| Sound Wave              | A_         |            |                                  |
+| Sound Wave              | W_         |            |                                  |
 
 <a name="anc-ui"></a>
 <a name="1.2.11"></a>
@@ -501,7 +512,27 @@ Packing 4 channels of data into a texture (RGBA) is not recommended except for a
 | Asset Type              | Prefix     | Suffix     | Notes                            |
 | ----------------------- | ---------- | ---------- | -------------------------------- |
 | Particle System         | PS_        |            |                                  |
+| Niagara Dynamic Input Script | NDIS_ |            |                                  |
+| Niagara Function Script | NFS_       |            |                                  |
+| Niagara Module Script   | NMS_       |            |                                  |
+| Niagara Particle System | NS_        |            |                                  |
+| Niagara Emitter         | NE_        |            |                                  |
+| Niagara Effect Type     | NET_       |            |                                  |
+| Niagara Parameter Collection | NPC_  |            |                                  |
+| Niagara Parameter Collection Instance | NPCI_ |   |                                  |
+| Niagara Simulation Cache | NSC_      |            |                                  |
 | Material (Post Process) | PP_        |            |                                  |
+
+<a name="anc-media"></a>
+<a name="1.2.13"></a>
+### 1.2.13 Media
+
+| Asset Type              | Prefix     | Suffix     | Notes                            |
+| ----------------------- | ---------- | ---------- | -------------------------------- |
+| Image Media Source      | IMS_       |            |                                  |
+| File Media Source       | FMS_       |            |                                  |
+| Media Texture           | MT_        |            |                                  |
+| Media Player            | MP_        |            |                                  |
 
 **[⬆ Back to Top](#table-of-contents)**
 
@@ -519,6 +550,9 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 ### 2e1 Example Project Content Structure
 <pre>
 |-- Content
+    |-- 00_Common
+        |-- Meshes (e.g. Zerospace studio geometry)
+        |-- Mocap
     |-- <a href="#2.2">00_AwesomeRPG</a>
         |-- Environment
         |   |-- PowerStation
