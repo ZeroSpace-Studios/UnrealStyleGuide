@@ -335,6 +335,7 @@ When naming an asset, use these tables to determine the prefix and suffix to use
 | Groom                   | GR_        |            |                                  |
 | Level Sequence          | LS_        |            |                                  |
 | Level Sequence (Main)   | LS_        | _M         |                                  |
+| Live Link Remap Asset   | BP_        | RemapAsset |                                  |
 | Metahuman Identity      | MHI_       |            |                                  |
 | Morph Target            | MT_        |            |                                  |
 | Pose Asset              | PA_        |            |                                  |
