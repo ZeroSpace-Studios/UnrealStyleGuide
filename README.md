@@ -1,4 +1,4 @@
-# Zerospace UE5 Style Guide
+# ZeroSpace UE5 Style Guide
 
 *A mostly reasonable approach to Unreal Engine 5*
 
@@ -553,7 +553,7 @@ There are multiple ways to lay out the content of a UE5 project. In this style, 
 <pre>
 |-- Content
     |-- 00_Common
-        |-- Meshes (e.g. Zerospace studio geometry)
+        |-- Meshes (e.g. ZeroSpace studio geometry)
         |-- Mocap
     |-- <a href="#2.2">00_AwesomeRPG</a>
         |-- Environment
