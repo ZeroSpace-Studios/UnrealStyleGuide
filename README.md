@@ -1,12 +1,12 @@
 # ZeroSpace UE5 Style Guide
 
-*A mostly reasonable approach to Unreal Engine 5*
+> *All structure, assets, and code in any project should look like a single person created it, no matter how many people contributed.*
+
+Moving from one project to another should not cause a re-learning of style and structure. Conforming to a style guide removes unneeded guesswork and ambiguities.
+
+It also allows for more productive creation and maintenance as one does not need to think about style. Simply follow the instructions. This style guide is written with best practices in mind, meaning that by following this style guide you will also minimize hard to track issues.
 
 Forked from [Allar's UE5 style guide](http://ue5.style/).
-
-## Linter and Style Guide Documentation
-
-More technical documentation regarding Linter and the Style Guide can be found at our [ReadTheDocs](https://ue4-style-guide.readthedocs.io/en/latest/) page.
 
 ## Linking To This Document
 
@@ -20,13 +20,8 @@ Every section of this style guide is numbered for both easy reference and easy l
   - [Variables / Properties](#terms-var-prop)
     - [Property](#terms-property)
     - [Variable](#terms-variable)
-- [0. Principles](#0)
-  - [0.1 If your UE5 project already has a style guide, you should follow it](#0.1)
-  - [0.2 All structure, assets, and code in any project should look like a single person created it, no matter how many people contributed](#0.2)
-  - [0.3 Friends do not let friends have bad style](#0.3)
-  - [0.4 A team without a style guide is no team of mine](#0.4)
-- [00. Globally Enforced Opinions](#00)
-  - [00.1 Forbidden Characters](#00.1)
+- [0. Globally Enforced Opinions](#0)
+  - [0.1 Forbidden Characters](#0.1)
     - [Identifiers](#identifiers)
 - [1. Asset Naming Conventions](#anc)
   - [1.1 Base Asset Name - `Prefix_BaseAssetName_Variant_Suffix`](#base-asset-name)
@@ -179,48 +174,12 @@ Usually refers to a variable defined as a function argument or a local variable 
 When in the context of a class, it is often used to convey discussion about its definition and what it will hold.
 
 <a name="0"></a>
-## 0. Principles
-
-These principles have been adapted from [idomatic.js style guide](https://github.com/rwaldron/idiomatic.js/).
-
-<a name="0.1"></a>
-### 0.1 If your project already has a style guide, you should follow it
-
-If you are working on a project or with a team that has a pre-existing style guide, it should be respected.  Any inconsistency between an existing style guide and this guide should defer to the existing.
-
-Style guides should be living documents. You should propose style guide changes to an existing style guide as well as this guide if you feel the change benefits all usages.
-
-> #### "Arguments over style are pointless. There should be a style guide, and you should follow it."
-> [_Rebecca Murphey_](https://rmurphey.com)
-
-<a name="0.2"></a>
-### 0.2 All structure, assets, and code in any project should look like a single person created it, no matter how many people contributed
-
-Moving from one project to another should not cause a re-learning of style and structure. Conforming to a style guide removes unneeded guesswork and ambiguities.
-
-It also allows for more productive creation and maintenance as one does not need to think about style. Simply follow the instructions. This style guide is written with best practices in mind, meaning that by following this style guide you will also minimize hard to track issues.
-
-<a name="0.3"></a>
-### 0.3 Friends do not let friends have bad style
-
-If you see someone working either against a style guide or no style guide, try to correct them.
-
-When working within a team or discussing within a community such as [Unreal Slackers](http://join.unrealslackers.org/), it is far easier to help and to ask for help when people are consistent. Nobody likes to help untangle someone's Blueprint spaghetti or deal with assets that have names they can't understand.
-
-If you are helping someone whose work conforms to a different but consistent and sane style guide, you should be able to adapt to it. If they do not conform to any style guide, please direct them here.
-
-<a name="0.4"></a>
-### 0.4 A team without a style guide is no team of mine
-
-When joining a development team, one of your first questions should be "Do you have a style guide?". If the answer is no, you should be skeptical about their ability to work as a team.
-
-<a name="00"></a>
-## 00. Globally Enforced Opinions
+## 0. Globally Enforced Opinions
 
 @TODO: Make this section 1 and update this document accordingly. Or maybe we don't?
 
-<a name="00.1"></a>
-### 00.1 Forbidden Characters
+<a name="0.1"></a>
+### 0.1 Forbidden Characters
 
 <a name="identifiers-1"></a>
 #### Identifiers
