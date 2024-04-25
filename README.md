@@ -1244,7 +1244,11 @@ Wires should have clear beginnings and ends. You should never have to mentally u
 
 We use the [Blueprint Assist](https://www.unrealengine.com/marketplace/en-US/product/blueprint-assist) plugin to format Blueprint code. This speeds up development by eliminating the need to manually organize nodes and drag them around. By enforcing a standard formatting layout, developers do not need to worry about organizational conventions, and can get accustomed to code being laid out a certain way.
 
-Blueprint Assist provides many [powerful shortcuts](https://blueprintassist.github.io/features/command-list/) for making writing and editing code a breeze.
+Blueprint Assist provides many [powerful shortcuts](https://blueprintassist.github.io/features/command-list/) for making writing and editing code a breeze. Here are some quick hits:
+- F to format the current node's entire node chain
+- Shift + F to format only the currently selected nodes (click + drag to select nodes first)
+- Q to auto-connect pins
+- Alt + D to disconnect node from execution
 
 Blueprint Assist is now included in the ZeroSpace template project, so it should automatically be enabled for new projects. By default, it auto-formats your code as you're writing, which can be unhelpful when coding as your blueprint nodes move around, or when working in an external plugin's blueprint. Auto-format can be turned off in the Editor Preferences → Blueprint Assist → check Globally Disable Auto Formatting.
 
