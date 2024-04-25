@@ -67,7 +67,7 @@ Every section of this style guide is numbered for both easy reference and easy l
   - [3.2 Variables](#bp-vars)
     - [3.2.1 Naming](#bp-var-naming)
       - [3.2.1.1 Nouns](#bp-var-naming-nouns)
-      - [3.2.1.2 PascalCase](#bp-var-naming-case)
+      - [3.2.1.2 Variable Name Cases](#bp-var-naming-case)
         - [3.2.1.2e Examples](#3.2.1.2e)
       - [3.2.1.3 Boolean No Prefix](#bp-var-bool-prefix)
       - [3.2.1.4 Boolean Names](#bp-var-bool-names)
@@ -100,11 +100,12 @@ Every section of this style guide is numbered for both easy reference and easy l
     - [3.3.5 All Custom Static Plugin `BlueprintCallable` Functions Must Be Categorized By Plugin Name](#bp-graphs-funcs-plugin-category)
   - [3.4 Blueprint Graphs](#bp-graphs)
     - [3.4.1 No Spaghetti](#bp-graphs-spaghetti)
-    - [3.4.2 Align Wires Not Nodes](#bp-graphs-align-wires)
-    - [3.4.3 White Exec Lines Are Top Priority](#bp-graphs-exec-first-class)
-    - [3.4.4 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
-    - [3.4.5 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
-    - [3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
+    - [3.4.2 Use a blueprint formatter (Blueprint Assist)](#bp-blueprint-assist)
+    - [3.4.3 Align Wires Not Nodes](#bp-graphs-align-wires)
+    - [3.4.4 White Exec Lines Are Top Priority](#bp-graphs-exec-first-class)
+    - [3.4.5 Graphs Should Be Reasonably Commented](#bp-graphs-block-comments)
+    - [3.4.6 Graphs Should Handle Casting Errors Where Appropriate](#bp-graphs-cast-error-handling)
+    - [3.4.7 Graphs Should Not Have Any Dangling / Loose / Dead Nodes](#bp-graphs-dangling-nodes)
 - [4. Static Meshes](#4)
   - [4.1 Static Mesh UVs](#s-uvs)
     - [4.1.1 All Meshes Must Have UVs](#s-uvs-no-missing)
@@ -577,9 +578,16 @@ The reasons for this structure are listed in the following sub-sections.
 These are common rules for naming any folder in the content structure.
 
 <a name="2.1.1"></a>
-#### 2.1.1 Always Use PascalCase[<sup>*</sup>](#terms-cases)
+#### 2.1.1 Variable Name Cases[<sup>*</sup>](#terms-cases)
+
+We use:
+- PascalCase for public variables
+- camelCase for local variables
+- _camelCase for private variables (begin with underscore)
 
 PascalCase refers to starting a name with a capital letter and then instead of using spaces, every following word also starts with a capital letter. For example, `DesertEagle`, `RocketPistol`, and `ASeriesOfWords`.
+
+camelCase refers to starting a name with the first letter lowercase but every following word starts with uppercase, e.g. desertEagle, styleGuide, aSeriesOfWords.
 
 See [Cases](#terms-cases).
 
@@ -792,12 +800,19 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 <a name="3.2.1.2e"></a>
 ###### 3.2.1.2e Examples
 
+Public variables:
 * `Score`
 * `Kills`
 * `TargetPlayer`
 * `Range`
 * `CrosshairColor`
 * `AbilityID`
+
+Local variables:
+* `currentIndex`
+
+Private variables:
+* `_playerController`
 
 <a name="3.2.1.3"></a>
 <a name="bp-var-bool-prefix"></a>
@@ -1190,45 +1205,63 @@ This section covers things that apply to all Blueprint graphs.
 Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.
 
 <a name="3.4.2"></a>
+<a name="bp-blueprint-assist"></a>
+#### 3.4.2 Use a blueprint formatter (Blueprint Assist)
+
+We use the [Blueprint Assist](https://www.unrealengine.com/marketplace/en-US/product/blueprint-assist) plugin to format Blueprint code. This speeds up development by eliminating the need to manually organize nodes and drag them around. By enforcing a standard formatting layout, developers do not need to worry about organizational conventions, and can get accustomed to code being laid out a certain way.
+
+Blueprint Assist provides many [powerful shortcuts](https://blueprintassist.github.io/features/command-list/) for making writing and editing code a breeze. Here are some quick hits:
+- F to format the current node's entire node chain
+- Shift + F to format only the currently selected nodes (click + drag to select nodes first)
+- Q to auto-connect pins
+- Alt + D to disconnect node from execution
+
+Blueprint Assist is now included in the ZeroSpace template project, so it should automatically be enabled for new projects. By default, it auto-formats your code as you're writing, which can be unhelpful when coding as your blueprint nodes move around, or when working in an external plugin's blueprint. Auto-format can be turned off in the Editor Preferences → Blueprint Assist → check Globally Disable Auto Formatting.
+
+If using Blueprint Assist, sections 3.4.3 and 3.4.4 can be ignored as the formatter takes care of those concerns.
+
+<a name="3.4.3"></a>
 <a name="bp-graphs-align-wires"></a>
-#### 3.4.2 Align Wires Not Nodes
+#### 3.4.3 Align Wires Not Nodes
 
 Always align wires, not nodes. You can't always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q
 
 Good example: The tops of the nodes are staggered to keep a perfectly straight white exec line.
-![Aligned By Wires](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-good.png?raw=true "Aligned By Wires")
+![Aligned By Wires](images/bp-graphs-align-wires-good.png "Aligned By Wires")
 
 Bad Example: The tops of the nodes are aligned creating a wiggly white exec line.
-![Bad](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-bad.png?raw=true "Wiggly")
+![Bad](images/bp-graphs-align-wires-bad.png "Wiggly")
 
 Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.
-![Acceptable](https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png?raw=true "Acceptable")
+![Acceptable](images/bp-graphs-align-wires-acceptable.png "Acceptable")
 
-<a name="3.4.3"></a>
+<a name="3.4.4"></a>
 <a name="bp-graphs-exec-first-class"></a>
-#### 3.4.3 White Exec Lines Are Top Priority
+#### 3.4.4 White Exec Lines Are Top Priority
 
 If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.
 
-<a name="3.4.4"></a>
+<a name="3.4.5"></a>
 <a name="bp-graphs-block-comments"></a>
-#### 3.4.4 Graphs Should Be Reasonably Commented
+#### 3.4.5 Graphs Should Be Reasonably Commented
 
 Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function's goal, then they do not need to be commented as the function name and  description should suffice.
 
-<a name="3.4.5"></a>
+<a name="3.4.6"></a>
 <a name="bp-graphs-cast-error-handling"></a>
-#### 3.4.5 Graphs Should Handle Casting Errors Where Appropriate
+#### 3.4.6 Graphs Should Handle Casting Errors Where Appropriate
 
 If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is 'supposed to work' doesn't. A function should also attempt a graceful recover after a failed cast if it's known that the reference being casted could ever fail to be casted.
 
 This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.
 
-<a name="3.4.6"></a>
+<a name="3.4.7"></a>
 <a name="bp-graphs-dangling-nodes"></a>
-#### 3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
+#### 3.4.7 Graphs Should Not Have Any Dangling / Loose / Dead Nodes
 
-All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
+Nodes in blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.
+
+If you must leave some nodes dangling, comment them as DOP (Disconnected On Purpose) and explain why.
 
 **[⬆ Back to Top](#table-of-contents)**
 
