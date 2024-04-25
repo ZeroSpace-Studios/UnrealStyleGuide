@@ -72,7 +72,7 @@ Every section of this style guide is numbered for both easy reference and easy l
   - [3.2 Variables](#bp-vars)
     - [3.2.1 Naming](#bp-var-naming)
       - [3.2.1.1 Nouns](#bp-var-naming-nouns)
-      - [3.2.1.2 PascalCase](#bp-var-naming-case)
+      - [3.2.1.2 Variable Name Cases](#bp-var-naming-case)
         - [3.2.1.2e Examples](#3.2.1.2e)
       - [3.2.1.3 Boolean No Prefix](#bp-var-bool-prefix)
       - [3.2.1.4 Boolean Names](#bp-var-bool-names)
@@ -619,7 +619,7 @@ The reasons for this structure are listed in the following sub-sections.
 These are common rules for naming any folder in the content structure.
 
 <a name="2.1.1"></a>
-#### 2.1.1 Variable name cases[<sup>*</sup>](#terms-cases)
+#### 2.1.1 Variable Name Cases[<sup>*</sup>](#terms-cases)
 
 We use:
 - PascalCase for public variables
@@ -841,12 +841,19 @@ All non-boolean variables should be in the form of [PascalCase](#terms-cases).
 <a name="3.2.1.2e"></a>
 ###### 3.2.1.2e Examples
 
+Public variables:
 * `Score`
 * `Kills`
 * `TargetPlayer`
 * `Range`
 * `CrosshairColor`
 * `AbilityID`
+
+Local variables:
+* `currentIndex`
+
+Private variables:
+* `_playerController`
 
 <a name="3.2.1.3"></a>
 <a name="bp-var-bool-prefix"></a>
